@@ -13,7 +13,7 @@ SetBatchLines -1
 SetKeyDelay -1, 50
 SetWorkingDir %A_ScriptDir%
 
-; Menu, Tray, NoStandard ;不显示默认的AHK右键菜单
+Menu, Tray, NoStandard ;不显示默认的AHK右键菜单
 Menu, Tray, Add, 自定义电感列表, 自定义电感列表 ;添加新的右键菜单
 Menu, Tray, Add,
 Menu, Tray, Add, 重启软件, 重启软件 ;添加新的右键菜单
@@ -34,7 +34,7 @@ else
 列表:=StrSplit(电感列表, ",")
 长度:=列表.Count()
 
-输出:="黑钨重工出品 免费开源 请勿商用 侵权必究`n输入你需要生成的目标mh电感(无需单位)`n计算结果会自动复制到剪贴板`n当前电感列表个数：" . 长度 . "`n当前电感列表内容：`n"
+输出:="黑钨重工出品 免费开源`n请勿商用 侵权必究`n输入你需要生成的目标mh电感(无需单位)`n计算结果会自动复制到剪贴板`n当前电感列表个数：" . 长度 . "`n当前电感列表内容：`n"
 
 Gui +AlwaysOnTop
 Gui Font, s13, Segoe UI
@@ -100,7 +100,7 @@ loop %长度%
   
   if (第一>=第二) and (第二>0)
   {
-    输出.=第一 . "mh + " . 第二 . "mh`n等效值" . 最低等效值 . "mh   误差" . 最低误差 . "%`n`n"
+    输出.=第一 . "mh + " . 第二 . "mh   并联`n等效值" . 最低等效值 . "mh   误差" . 最低误差 . "%`n`n"
   }
 }
 GuiControl, , 输出, %输出%

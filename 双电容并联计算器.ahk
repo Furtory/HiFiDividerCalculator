@@ -55,6 +55,8 @@ Return
 Gui -AlwaysOnTop
 InputBox, 电容列表, 自定义电容列表,请按从大到小顺序`n以半角逗号为分隔`n输入自定义电容(无需单位), , 600, , , , Locale, ,%电容列表%
 IniWrite, %电容列表%, 电容列表.ini, 设置, 电容列表
+列表:=StrSplit(电容列表, ",")
+长度:=列表.Count()
 Gui +AlwaysOnTop
 Return
 
